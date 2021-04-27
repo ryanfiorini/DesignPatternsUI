@@ -15,6 +15,8 @@ using DesignPatternsUI2.Creational.Singleton;
 using DesignPatternsUI2.Structural.Adapter;
 using DesignPatternsUI2.Structural.Bridge;
 using DesignPatternsUI2.Structural.Composite;
+using DesignPatternsUI.Structural.Decorator;
+using System.Diagnostics;
 
 namespace DesignPatternsUI2
 {
@@ -245,6 +247,29 @@ namespace DesignPatternsUI2
             // Recursively display nodes
             root.Display(1);
 
+        }
+
+        private void btnDecorator_Click(object sender, EventArgs e)
+        {
+            // Create book
+
+            Book book = new Book("Worley", "Inside ASP.NET", 10);
+            book.Display();
+
+            // Create video
+
+            Video video = new Video("Spielberg", "Jaws", 23, 92);
+            video.Display();
+
+            // Make video borrowable, then borrow and display
+
+            Debug.WriteLine("\nMaking video borrowable:");
+
+            Borrowable borrowvideo = new Borrowable(video);
+            borrowvideo.BorrowItem("Customer #1");
+            borrowvideo.BorrowItem("Customer #2");
+
+            borrowvideo.Display();
         }
     }
 }

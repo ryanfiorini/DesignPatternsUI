@@ -322,6 +322,7 @@ namespace DesignPatternsUI2
             this.btnDecorator.TabIndex = 5;
             this.btnDecorator.Text = "Decorator";
             this.btnDecorator.UseVisualStyleBackColor = true;
+            this.btnDecorator.Click += new System.EventHandler(this.btnDecorator_Click);
             // 
             // btnComposite
             // 
